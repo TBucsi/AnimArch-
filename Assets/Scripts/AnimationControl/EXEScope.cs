@@ -98,7 +98,7 @@ namespace OALProgramControl
             return result;
         }
 
-        public void AddCommand(EXECommand Command)
+        public virtual void AddCommand(EXECommand Command)
         {
             this.Commands.Add(Command);
             Command.SetSuperScope(this);
@@ -132,7 +132,7 @@ namespace OALProgramControl
             v.VisitExeScope(this);
         }
 
-        public override EXECommand CreateClone()
+        protected override EXECommand CreateCloneCustom()
         {
             EXEScope Clone = CreateDuplicateScope();
             
@@ -150,6 +150,15 @@ namespace OALProgramControl
         protected virtual EXEScope CreateDuplicateScope()
         {
             return new EXEScope();
+        }
+
+        public override void SetCommandID()
+        {
+            base.SetCommandID();
+            foreach (EXECommand command in Commands)
+            {
+                command.SetCommandID();
+            }
         }
     }
 }

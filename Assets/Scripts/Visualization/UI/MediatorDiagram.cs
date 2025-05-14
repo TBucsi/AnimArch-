@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Visualization.Animation;
+using Visualization.ClassDiagram.Diagrams;
 
 namespace Visualization.UI
 {
@@ -75,6 +76,8 @@ namespace Visualization.UI
             UIEditorManager.Instance.CreateNewDiagram();
             MediatorMainPanel.SetActiveMainPanel(false);
             MediatorMainPanel.SetActiveCreationPanel(true);
+
+            DiagramManager.Instance.ChangeLayout();
         }
         private void OnLoadButtonClicked()
         {
@@ -84,6 +87,8 @@ namespace Visualization.UI
             MenuManager.Instance.UnshowAnimation();
             MediatorMainPanel.SetActiveMainPanel(true);
             MediatorMainPanel.SetActiveCreationPanel(false);
+            
+            DiagramManager.Instance.ChangeLayout();
         }
         //TODO sprav z toho template method, zopakovat onloadbuttonclicked,
         //Fileloader metoda vynechas tri riadky a das tam cestu z leafu

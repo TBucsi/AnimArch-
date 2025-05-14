@@ -37,28 +37,28 @@ namespace Visualization.Animation
 
                 if (!animate)
                 {
-                    animation.objectDiagram.ShowObject(objectInDiagram);
-                    animation.objectDiagram.AddRelation(callerObject, createdObject, "ASSOCIATION");
+                    animation.DiagramManager.objectDiagram.ShowObject(objectInDiagram);
+                    animation.DiagramManager.objectDiagram.AddRelation(callerObject, createdObject, "ASSOCIATION");
                 }
                 else
                 {
                     float speedPerAnim = AnimationData.Instance.AnimSpeed;
                     float timeModifier = 1.25f;
-                    IEnumerable<RelationInDiagram> relationsOfClass = animation.classDiagram.FindRelationsByClass(createdObject.OwningClass.Name);
+                    IEnumerable<RelationInDiagram> relationsOfClass = animation.DiagramManager.classDiagram.FindRelationsByClass(createdObject.OwningClass.Name);
 
                     foreach (RelationInDiagram rel in relationsOfClass)
                     {
                         yield return new WaitUntil(() => rel.HighlightSubject.finishedFlag.IsDrawingFinished());
                     }
-                    Class highlightedClass = animation.classDiagram.FindClassByName(createdObject.OwningClass.Name).ParsedClass;
+                    Class highlightedClass = animation.DiagramManager.classDiagram.FindClassByName(createdObject.OwningClass.Name).ParsedClass;
                     highlightedClass.HighlightSubject.ClassName = highlightedClass.Name;
 
                     highlightedClass.HighlightSubject.IncrementHighlightLevel();
-                    animation.objectDiagram.ShowObject(objectInDiagram);
+                    animation.DiagramManager.objectDiagram.ShowObject(objectInDiagram);
                     yield return new WaitForSeconds(AnimationData.Instance.AnimSpeed * timeModifier);
                     highlightedClass.HighlightSubject.DecrementHighlightLevel();
 
-                    animation.objectDiagram.AddRelation(callerObject, createdObject, "ASSOCIATION");
+                    animation.DiagramManager.objectDiagram.AddRelation(callerObject, createdObject, "ASSOCIATION");
                 }
             }
             else

@@ -31,6 +31,10 @@ UserSettings/
 # Vscode config directory
 .vscode/
 
+# jetbrains .idea IDE
+.idea
+/Assets/.idea
+
 # History directory
 .history/
 

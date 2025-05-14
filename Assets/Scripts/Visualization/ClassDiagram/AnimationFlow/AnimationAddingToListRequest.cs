@@ -24,10 +24,10 @@ namespace Visualization.Animation
             {
                 if (appendedInstance != null)
                 {
-                    animation.objectDiagram.AddRelation(listOwnerInstance, appendedInstance, "ASSOCIATION");
+                    animation.DiagramManager.objectDiagram.AddRelation(listOwnerInstance, appendedInstance, "ASSOCIATION");
                 }
 
-                animation.objectDiagram.UpdateAttributeValues(listOwnerInstance);
+                animation.DiagramManager.objectDiagram.UpdateAttributeValues(listOwnerInstance);
             }
 
             Done = true;

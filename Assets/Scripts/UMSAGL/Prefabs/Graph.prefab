@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 114650227409034106}
   - component: {fileID: 222222143851985230}
   - component: {fileID: 114631764084499072}
+  - component: {fileID: -2607787968600871240}
   m_Layer: 0
   m_Name: Graph
   m_TagString: Untagged
@@ -187,6 +188,47 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &-2607787968600871240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889724182012266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69beb381e244f92449b8c4cf954630e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TrackedObjects:
+  - rid: 4386749635386146818
+  references:
+    version: 2
+    RefIds:
+    - rid: 4386749635386146818
+      type: {class: TrackedMonoBehaviourObject, ns: UnityEngine.Localization.PropertyVariants.TrackedObjects,
+        asm: Unity.Localization}
+      data:
+        m_Target: {fileID: 114436810308846132}
+        m_TrackedProperties:
+          items:
+          - rid: 4386749635386146819
+        m_UpdateType: 0
+        m_Changed:
+          m_PersistentCalls:
+            m_Calls: []
+    - rid: 4386749635386146819
+      type: {class: BoolTrackedProperty, ns: UnityEngine.Localization.PropertyVariants.TrackedProperties,
+        asm: Unity.Localization}
+      data:
+        m_PropertyPath: m_PresetInfoIsWorld
+        m_VariantData:
+        - localeIdentifier:
+            m_Code: en
+          value: 0
+        - localeIdentifier:
+            m_Code: sk
+          value: 1
 --- !u!1 &5839517624281850263
 GameObject:
   m_ObjectHideFlags: 0

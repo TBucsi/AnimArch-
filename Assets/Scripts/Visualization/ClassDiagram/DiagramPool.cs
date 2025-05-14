@@ -12,6 +12,13 @@ namespace Visualization.ClassDiagram
         public GameObject classPrefab;
         public GameObject objectPrefab;
         public GameObject activityPrefab;
+        public GameObject sequenceEntityPrefab;
+        public GameObject sequenceLinePrefab;
+        public GameObject sequenceActivationBlock;
+        public GameObject sequenceArrowMessage;
+        public GameObject sequenceArrowDS;
+        public GameObject sequenceArrowSD;
+        public GameObject sequenceMessage;
         public GameObject activityInitialPrefab;
         public GameObject activityFinalPrefab;
         public GameObject classAttributePrefab;
@@ -43,6 +50,8 @@ namespace Visualization.ClassDiagram
         public Diagrams.ClassDiagram ClassDiagram;
         public ObjectDiagram ObjectDiagram;
         public ActivityDiagram ActivityDiagram;
+
+        public SequenceDiagram SequenceDiagram;
 
         public List<InterGraphRelation> RelationsClassToObject = new();
     }

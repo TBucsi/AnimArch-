@@ -103,6 +103,9 @@ namespace Visualization
 
                 if (ToolManager.Instance.InterGraphJump == 2)
                     transform.position = new Vector3(offsetX, offsetY, -700 + 2*offsetZ);
+                
+                if (ToolManager.Instance.InterGraphJump == 3)
+                    transform.position = new Vector3(offsetX, offsetY, -700 + 3*offsetZ);
                 ToolManager.Instance.IsJump = false;
             }
 

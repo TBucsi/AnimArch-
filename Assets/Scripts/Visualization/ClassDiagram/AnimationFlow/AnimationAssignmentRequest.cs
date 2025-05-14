@@ -20,7 +20,7 @@ namespace Visualization.Animation
             CDClassInstance classInstance = assignment.GetAssignmentTargetOwner();
             if (classInstance != null)
             {
-                animation.objectDiagram.UpdateAttributeValues(classInstance);
+                animation.DiagramManager.objectDiagram.UpdateAttributeValues(classInstance);
             }
 
             Done = true;

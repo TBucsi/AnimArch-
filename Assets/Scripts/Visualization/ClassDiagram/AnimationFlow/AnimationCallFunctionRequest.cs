@@ -22,13 +22,14 @@ namespace Visualization.Animation
 
                 if (methodCallInfo != null)
                 {
-                    animation.objectDiagram.AddRelation(methodCallInfo.CallerObject, methodCallInfo.CalledObject, "ASSOCIATION");
+                    animation.DiagramManager.objectDiagram.AddRelation(methodCallInfo.CallerObject, methodCallInfo.CalledObject, "ASSOCIATION");
                 }
             }
         }
 
         public override IEnumerator PerformRequest()
         {
+
             if (callInfo != null)
             {
                 ClassDiagram.Diagrams.ClassDiagram classDiagram = Animation.Instance.classDiagram;

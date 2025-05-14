@@ -53,6 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startCap: {fileID: 0}
   endCap: {fileID: 0}
+  deleteButton: {fileID: 0}
   dashed: 0
   segmentLength: 10
 --- !u!222 &222984510585458618

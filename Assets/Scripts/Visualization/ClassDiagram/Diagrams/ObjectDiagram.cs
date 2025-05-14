@@ -19,7 +19,6 @@ namespace AnimArch.Visualization.Diagrams
 {
     public class ObjectDiagram : Diagram
     {
-        public Graph graph;
         public List<ObjectInDiagram> Objects { get; private set; }
         public List<ObjectRelation> Relations { get; private set; }
         private Dictionary<long, string> ObjectNamesInDiagram = new Dictionary<long, string>();
@@ -93,8 +92,6 @@ namespace AnimArch.Visualization.Diagrams
             //Set the layout of diagram so it is corresponding to EA view
             ManualLayout();
             //AutoLayout();
-
-            graph.transform.position = new Vector3(0, 0, offsetZ);
         }
 
         private Graph CreateGraph()

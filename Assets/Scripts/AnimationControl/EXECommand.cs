@@ -7,10 +7,14 @@ namespace OALProgramControl
 {
     public abstract class EXECommand
     {
+        public long CommandID { get; private set; }
+
         public bool IsActive { get; set; } = false;
+        public bool IsDirectlyInCode { get; set; } = false;
         public static EXEScopeNull NullScope = EXEScopeNull.GetInstance();
         public EXEScopeBase SuperScope { get; set; } = NullScope; 
         public EXEExecutionStack CommandStack { get; set; } = null;
+        public bool IsDone { get; set; } = false;
         
         public virtual IEnumerable<EXEScopeBase> ScopesToTop()
         {
@@ -37,7 +41,7 @@ namespace OALProgramControl
         public EXEExecutionResult PerformExecution(OALProgram OALProgram)
         {
             EXEExecutionResult Result = Execute(OALProgram);
-
+            IsDone = Result.IsDone;
             return Result;
         }
         protected abstract EXEExecutionResult Execute(OALProgram OALProgram);
@@ -86,7 +90,17 @@ namespace OALProgramControl
         {
             return false;
         }
-        public abstract EXECommand CreateClone();
+        public EXECommand CreateClone()
+        {
+            EXECommand copy = CreateCloneCustom();
+
+            // Shared behaviour of cloning goes here
+            copy.IsDirectlyInCode = IsDirectlyInCode;
+            copy.CommandID = CommandID;
+
+            return copy;
+        }
+        protected abstract EXECommand CreateCloneCustom();
         public virtual void Accept(Visitor v) {
             v.VisitExeCommand(this);
         }
@@ -131,6 +145,30 @@ namespace OALProgramControl
             }
 
             return executionResult.IsSuccess;
+        }
+        public override bool Equals(object obj)
+        {
+            // Debug.Log("[Karin] EXECommand.Equals");
+            if (obj == null || this.GetType() != obj.GetType())
+            {
+                return false;
+            }
+
+            EXECommand other = (EXECommand)obj;
+            return IsActive == other.IsActive &&
+                   IsDirectlyInCode == other.IsDirectlyInCode &&
+                   EqualityComparer<EXEScopeBase>.Default.Equals(SuperScope, other.SuperScope) &&
+                   EqualityComparer<EXEExecutionStack>.Default.Equals(CommandStack, other.CommandStack);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(IsActive, IsDirectlyInCode, SuperScope, CommandStack);
+        }
+
+        public virtual void SetCommandID()
+        {
+            CommandID = EXEScopeMethod.CommandIDSeed++;
         }
     }
 }

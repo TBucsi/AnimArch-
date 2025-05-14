@@ -14,7 +14,7 @@ namespace Visualization.Animation
         public override IEnumerator PerformRequest()
         {
             Debug.LogError("EXEScopeMethod activityDiagram.ClearDiagram()");
-            animation.activityDiagram.ClearDiagram();
+            animation.DiagramManager.activityDiagram.ClearDiagram();
 
             Done = true;
             yield return null;

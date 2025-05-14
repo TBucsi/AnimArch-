@@ -29,6 +29,7 @@ namespace Visualization
             string path = saveDirectory + fileName + ".txt";
             return File.Exists(path);
         }
+        public static string getSaveDirectory(){ return saveDirectory; }
 
     }
 }

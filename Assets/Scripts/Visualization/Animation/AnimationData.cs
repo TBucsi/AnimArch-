@@ -13,7 +13,7 @@ namespace Visualization.Animation
     public class AnimationData : Singleton<AnimationData>
     {
         public Anim selectedAnim;
-        string diagramPath = @"C:/AnimArch/exportedXMI.xml";
+        public string diagramPath = @"C:/AnimArch/exportedXMI.xml";
         public int diagramId = 4;
         public float AnimSpeed { get; set; }
         private void Awake()

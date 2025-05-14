@@ -64,9 +64,9 @@ namespace Visualization.Animation
             float timeModifier = 1f;
             Animation a = Animation.Instance;
 
-            Class called = a.classDiagram.FindClassByName(callInfo.CalledMethod.OwningClass.Name).ParsedClass;
-            Method calledMethod = a.classDiagram.FindMethodByName(callInfo.CalledMethod.OwningClass.Name, callInfo.CalledMethod.Name);
-            RelationInDiagram relation = a.classDiagram.FindEdgeInfo(callInfo.Relation?.RelationshipName);
+            Class called = a.DiagramManager.classDiagram.FindClassByName(callInfo.CalledMethod.OwningClass.Name).ParsedClass;
+            Method calledMethod = a.DiagramManager.classDiagram.FindMethodByName(callInfo.CalledMethod.OwningClass.Name, callInfo.CalledMethod.Name);
+            RelationInDiagram relation = a.DiagramManager.classDiagram.FindEdgeInfo(callInfo.Relation?.RelationshipName);
             Animation.assignCallInfoToAllHighlightSubjects(called, calledMethod, relation, callInfo, callInfo.CalledMethod);
 
             if (relation != null)
